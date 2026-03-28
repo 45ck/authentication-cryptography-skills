@@ -90,8 +90,8 @@ LICENSE                              MIT
 
 ## Related workflow agents
 
-- [security-reviewer](https://github.com/45ck/workflow-agents) - Review auth and crypto design choices
-- [pentest-reviewer](https://github.com/45ck/workflow-agents) - Focus testing on auth exposure and protocol risk
+- [security-reviewer](https://github.com/45ck/skill-harness) - Review auth and crypto design choices
+- [pentest-reviewer](https://github.com/45ck/skill-harness) - Focus testing on auth exposure and protocol risk
 
 ## Related skill packs
 
