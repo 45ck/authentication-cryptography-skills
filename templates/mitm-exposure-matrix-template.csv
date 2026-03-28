@@ -1,0 +1,4 @@
+path,transport,key_exchange,validation_risk,proxy_risk,notes
+client_to_api,,,,,
+service_to_service,,,,,
+admin_channel,,,,,

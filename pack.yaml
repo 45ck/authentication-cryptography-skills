@@ -1,0 +1,131 @@
+{
+  "name": "authentication-cryptography-pack",
+  "version": "0.1.0",
+  "type": "skill-pack",
+  "summary": "Authentication and cryptography skill pack for Claude Code-style workflows.",
+  "recommended_order": [
+    "identification-vs-authentication-reviewer",
+    "password-policy-reviewer",
+    "token-auth-design-reviewer",
+    "biometric-auth-risk-reviewer",
+    "remote-auth-protocol-reviewer",
+    "challenge-response-reviewer",
+    "certificate-chain-reviewer",
+    "ca-ra-role-explainer",
+    "certificate-revocation-reviewer",
+    "mitm-exposure-checker",
+    "trust-store-reviewer"
+  ],
+  "skills": [
+    {
+      "id": "identification-vs-authentication-reviewer",
+      "path": "skills/identification-vs-authentication-reviewer/SKILL.md",
+      "purpose": "Review whether identification, authentication, and account binding are clearly separated and consistently implemented.",
+      "handoffs": [
+        "password-policy-reviewer",
+        "token-auth-design-reviewer",
+        "remote-auth-protocol-reviewer"
+      ]
+    },
+    {
+      "id": "password-policy-reviewer",
+      "path": "skills/password-policy-reviewer/SKILL.md",
+      "purpose": "Review password rules, storage assumptions, reset flows, rate limits, and recovery mechanisms for security and usability tradeoffs.",
+      "handoffs": [
+        "identification-vs-authentication-reviewer",
+        "mitm-exposure-checker",
+        "certificate-chain-reviewer"
+      ]
+    },
+    {
+      "id": "token-auth-design-reviewer",
+      "path": "skills/token-auth-design-reviewer/SKILL.md",
+      "purpose": "Review token-based authentication design including issuance, audience, expiry, rotation, scope, storage, and revocation behavior.",
+      "handoffs": [
+        "certificate-revocation-reviewer",
+        "trust-store-reviewer",
+        "mitm-exposure-checker"
+      ]
+    },
+    {
+      "id": "biometric-auth-risk-reviewer",
+      "path": "skills/biometric-auth-risk-reviewer/SKILL.md",
+      "purpose": "Review whether biometric authentication is appropriate, what risks it introduces, and which fallback and recovery paths are required.",
+      "handoffs": [
+        "identification-vs-authentication-reviewer",
+        "challenge-response-reviewer",
+        "password-policy-reviewer"
+      ]
+    },
+    {
+      "id": "remote-auth-protocol-reviewer",
+      "path": "skills/remote-auth-protocol-reviewer/SKILL.md",
+      "purpose": "Review remote authentication protocols and flows for replay, downgrade, impersonation, transport, and session-establishment risks.",
+      "handoffs": [
+        "challenge-response-reviewer",
+        "mitm-exposure-checker",
+        "certificate-chain-reviewer"
+      ]
+    },
+    {
+      "id": "challenge-response-reviewer",
+      "path": "skills/challenge-response-reviewer/SKILL.md",
+      "purpose": "Review challenge-response mechanisms for nonce freshness, replay resistance, verifier trust, secret exposure, and implementation pitfalls.",
+      "handoffs": [
+        "remote-auth-protocol-reviewer",
+        "mitm-exposure-checker",
+        "certificate-revocation-reviewer"
+      ]
+    },
+    {
+      "id": "certificate-chain-reviewer",
+      "path": "skills/certificate-chain-reviewer/SKILL.md",
+      "purpose": "Review certificate chains, issuer trust, validation behavior, pinning assumptions, and deployment mistakes that weaken transport trust.",
+      "handoffs": [
+        "ca-ra-role-explainer",
+        "certificate-revocation-reviewer",
+        "trust-store-reviewer"
+      ]
+    },
+    {
+      "id": "ca-ra-role-explainer",
+      "path": "skills/ca-ra-role-explainer/SKILL.md",
+      "purpose": "Explain the roles and trust implications of certificate authorities, registration authorities, and related issuance actors in a given design.",
+      "handoffs": [
+        "certificate-chain-reviewer",
+        "certificate-revocation-reviewer",
+        "trust-store-reviewer"
+      ]
+    },
+    {
+      "id": "certificate-revocation-reviewer",
+      "path": "skills/certificate-revocation-reviewer/SKILL.md",
+      "purpose": "Review revocation design and handling assumptions including CRLs, OCSP, expiry, grace periods, cache behavior, and failure handling.",
+      "handoffs": [
+        "certificate-chain-reviewer",
+        "trust-store-reviewer",
+        "mitm-exposure-checker"
+      ]
+    },
+    {
+      "id": "mitm-exposure-checker",
+      "path": "skills/mitm-exposure-checker/SKILL.md",
+      "purpose": "Check where man-in-the-middle exposure exists across transport, key exchange, validation, downgrade, proxy, and trust-boundary paths.",
+      "handoffs": [
+        "remote-auth-protocol-reviewer",
+        "certificate-chain-reviewer",
+        "trust-store-reviewer"
+      ]
+    },
+    {
+      "id": "trust-store-reviewer",
+      "path": "skills/trust-store-reviewer/SKILL.md",
+      "purpose": "Review trust-store contents, source of trust anchors, update paths, custom certificates, pinning, and local override risks.",
+      "handoffs": [
+        "certificate-chain-reviewer",
+        "certificate-revocation-reviewer",
+        "mitm-exposure-checker"
+      ]
+    }
+  ]
+}
